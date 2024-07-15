@@ -8,9 +8,8 @@ DIR=$(pwd)
 rm -rf $DIR/results
 mkdir -p $DIR/results
 
-echo "about to source common"
-pwd
-ls -al 
+echo "about to source common  from $SCRIPTDIR"
+ls -al $SCRIPTDIR 
 
 source $SCRIPTDIR/common.sh
 
