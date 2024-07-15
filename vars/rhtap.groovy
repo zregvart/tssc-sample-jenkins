@@ -4,7 +4,14 @@ def info(message) {
 }
 
 def init( ) { 
+    echo " " 
+    sh "pwd"
     sh "ls -al " 
-
+    echo " " 
+    sh "pwd"
+    sh "ls -al .." 
+    echo " " 
+    sh "pwd"
+    sh "ls -al ../.." 
 }  
 
