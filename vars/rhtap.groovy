@@ -3,7 +3,7 @@ def info(message) {
     echo "XX INFO: ${message}" 
 }
 
-def run_script (scriptname) { 
+def xrun_script (scriptname) { 
     echo ("Loading libraryResource(${scriptname})")
     contents = libraryResource( scriptname )
     echo ("------")  
@@ -15,7 +15,18 @@ def run_script (scriptname) {
     echo ("-----------------------")
 }
 
+def run_script (scriptname) { 
+    echo ("Loading libraryResource(${scriptname})")
+    contents = libraryResource( scriptname )
+    echo ("------")   
+    writeFile(file: ${scriptname}, text: contents) 
+    sh "ls -al"
+    sh ${scriptname}  
+    echo ("-----------------------")
+}
+ 
 def init( ) {
+    
     run_script ('init.sh') 
 }   
 
