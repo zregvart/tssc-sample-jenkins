@@ -26,6 +26,7 @@ def install_script (scriptname) {
 def run_script (scriptname) { 
     install_script ("common.sh")  
     install_script ("verify-deps-exist")  
+    install_script (scriptname")  
     sh "rhtap/${scriptname}"  
     echo ("-----------------------")
 }
