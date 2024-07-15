@@ -38,4 +38,10 @@ def show_sbom_rhdh( ) {
 }  
 def summary( ) { 
     run_script ('summary.sh') 
-}        
+}   
+def gather_deploy_images( ) { 
+    run_script ('gather-deploy-images.sh') 
+}    
+def verify_enterprise_contract( ) { 
+    run_script ('verify-enterprise-contract.sh') 
+}         
