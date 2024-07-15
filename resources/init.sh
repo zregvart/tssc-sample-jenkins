@@ -8,9 +8,6 @@ DIR=$(pwd)
 rm -rf $DIR/results
 mkdir -p $DIR/results
 
-echo "about to source common  from $SCRIPTDIR"
-ls -al $SCRIPTDIR 
-
 source $SCRIPTDIR/common.sh
 
 # tools 
@@ -36,7 +33,7 @@ REQUIRED_ENV+="GITOPS_AUTH_PASSWORD  "
 REQUIRED_ENV+="POLICY_CONFIGURATION  REKOR_HOST IGNORE_REKOR INFO STRICT EFFECTIVE_TIME HOMEDIR"
 
 
-$SCRIPTDIR/verify-deps-exist "$REQUIRED_ENV" "$REQUIRED_BINARY" 
+rhtap/verify-deps-exist "$REQUIRED_ENV" "$REQUIRED_BINARY" 
 ERR=$?
 echo "Dependency Error $1 = $ERR" 
 if [ $ERR != 0 ]; then
