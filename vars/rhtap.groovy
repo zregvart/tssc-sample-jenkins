@@ -4,8 +4,7 @@ def info(message) {
 }
 
 def init( ) { 
-    sh "ls -al "
-}
-    sh "rhtap/init.sh"
+    sh "ls -al " 
+
 }  
 
