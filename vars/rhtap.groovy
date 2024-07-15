@@ -4,14 +4,14 @@ def info(message) {
 }
 
 def init( ) {
-    rhtap.info ("Loading libraryResource('init.sh')")
+    echo ("Loading libraryResource('init.sh')")
     contents = libraryResource('init.sh')
-    rhtap.info ("------")  
-    rhtap.info ("Contents of init.sh")
+    echo ("------")  
+    echo ("Contents of init.sh")
     printf("<%s>\n", contents); 
-    rhtap.info ("------")  
-    rhtap.info ("Running init.sh")
+    echo ("------")  
+    echo ("Running init.sh")
     sh contents  
-    rhtap.info ("-----------------------")
+    echo ("-----------------------")
 }   
 
