@@ -1,9 +1,11 @@
 
 def info(message) {
-    echo "INFO: ${message}"
+    echo "INFO: ${message}" 
 }
 
-def init( ) {
+def init( ) { 
+    sh "ls -al "
+}
     sh "rhtap/init.sh"
 }  
 
