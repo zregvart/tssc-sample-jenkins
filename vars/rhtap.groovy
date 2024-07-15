@@ -15,13 +15,18 @@ def xrun_script (scriptname) {
     echo ("-----------------------")
 }
 
-def run_script (scriptname) { 
+def install_script (scriptname) { 
     echo ("Loading libraryResource(${scriptname})")
     contents = libraryResource( scriptname )
     echo ("------")   
-    writeFile(file:  scriptname , text: contents) 
-    sh "ls -al"
-    sh "${scriptname}"  
+    writeFile(file:  "rhtap/${scriptname}"  , text: contents) 
+    sh "ls -al rhtap" 
+}
+
+def run_script (scriptname) { 
+    install_script ("common.sh")  
+    install_script ("verify-deps-exist")  
+    sh "rhtap/${scriptname}"  
     echo ("-----------------------")
 }
  
