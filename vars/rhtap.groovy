@@ -19,14 +19,13 @@ def run_script (scriptname) {
     echo ("Loading libraryResource(${scriptname})")
     contents = libraryResource( scriptname )
     echo ("------")   
-    writeFile(file: ${scriptname}, text: contents) 
+    writeFile(file:  scriptname , text: contents) 
     sh "ls -al"
     sh "${scriptname}"  
     echo ("-----------------------")
 }
  
-def init( ) {
-    
+def init( ) { 
     run_script ('init.sh') 
 }   
 
