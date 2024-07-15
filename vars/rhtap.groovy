@@ -20,6 +20,7 @@ def install_script (scriptname) {
     contents = libraryResource( scriptname )
     echo ("------")   
     writeFile(file:  "rhtap/${scriptname}"  , text: contents) 
+    sh "chmod +x rhtap/${scriptname}" 
     sh "ls -al rhtap" 
 }
 
