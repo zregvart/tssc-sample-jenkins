@@ -1,9 +1,9 @@
 # rhtap-jenkins shared library 
 
 ## Files
-### API Functions (RHAP_Jenkins.groovy)
+### API Functions (rhtap.groovy)
    
-    init ()   - run the Init stage of a pipeline 
+    rhtap.init ()   - run the Init stage of a pipeline 
 
 ## How-to
 
