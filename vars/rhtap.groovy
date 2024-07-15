@@ -21,7 +21,7 @@ def run_script (scriptname) {
     echo ("------")   
     writeFile(file: ${scriptname}, text: contents) 
     sh "ls -al"
-    sh ${scriptname}  
+    sh "${scriptname}"  
     echo ("-----------------------")
 }
  
