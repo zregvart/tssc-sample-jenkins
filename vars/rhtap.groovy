@@ -1,20 +1,6 @@
-
 def info(message) {
-    echo "XX INFO: ${message}" 
+    echo "INFO: ${message}" 
 }
-
-def xrun_script (scriptname) { 
-    echo ("Loading libraryResource(${scriptname})")
-    contents = libraryResource( scriptname )
-    echo ("------")  
-    echo ("Contents of ${scriptname}")
-    printf("<%s>\n", contents); 
-    echo ("------")  
-    echo ("Running ${scriptname}")
-    sh contents  
-    echo ("-----------------------")
-}
-
 def install_script (scriptname) { 
     echo ("Loading libraryResource(${scriptname})")
     contents = libraryResource( scriptname )
@@ -23,28 +9,33 @@ def install_script (scriptname) {
     sh "chmod +x rhtap/${scriptname}" 
     sh "ls -al rhtap" 
 }
-
 def run_script (scriptname) { 
     install_script ("common.sh")  
     install_script ("verify-deps-exist")  
     install_script (scriptname)  
-    sh "rhtap/${scriptname}"  
-    echo ("-----------------------")
+    sh "rhtap/${scriptname}"   
 }
- 
 def init( ) { 
     run_script ('init.sh') 
 }   
-
-def xinit( ) { 
-    echo ("Loading libraryResource('init.sh')")
-    contents = libraryResource('init.sh')
-    echo ("------")  
-    echo ("Contents of init.sh")
-    printf("<%s>\n", contents); 
-    echo ("------")  
-    echo ("Running init.sh")
-    sh contents  
-    echo ("-----------------------")
+def buildah_rhtap( ) { 
+    run_script ('buildah-rhtap.sh') 
 }   
-
+def acs_deploy_check( ) { 
+    run_script ('acs-deploy-check.sh') 
+}
+def acs_image_check( ) { 
+    run_script ('acs-image-check.sh') 
+}   
+def acs_image_scan( ) { 
+    run_script ('acs-image-scan.sh') 
+} 
+def update_deployment( ) { 
+    run_script ('update-deployment.sh') 
+} 
+def show_sbom_rhdh( ) { 
+    run_script ('show-sbom-rhdh.sh') 
+}  
+def summary( ) { 
+    run_script ('summary.sh') 
+}        
