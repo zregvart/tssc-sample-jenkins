@@ -3,13 +3,12 @@ def info(message) {
 }
 def install_script (scriptname) { 
     echo ("Loading libraryResource(${scriptname})")
-    contents = libraryResource( scriptname )
-    echo ("------")   
+    contents = libraryResource( scriptname ) 
     writeFile(file:  "rhtap/${scriptname}"  , text: contents) 
-    sh "chmod +x rhtap/${scriptname}" 
-    sh "ls -al rhtap" 
+    sh "chmod +x rhtap/${scriptname}"  
 }
 def run_script (scriptname) { 
+    // load common utilities across all tasks
     install_script ("common.sh")  
     install_script ("verify-deps-exist")  
     install_script (scriptname)  
