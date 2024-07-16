@@ -1,4 +1,7 @@
-# rhtap-jenkins shared library 
+# tssc-sample-jenkins shared library 
+
+This git repository contains a shared library of packaged TSSC Jenkins steps that match the default pipeline in Redhat Trusted Application Pipeline. 
+ 
 
 ## Files
 ### API Functions (rhtap.groovy)
@@ -20,7 +23,7 @@
 
 ### Setup
 [Here](https://jenkins.io/doc/book/pipeline/shared-libraries/) are the instructions on how to add the library to Jenkins
-This library can also be loaded dynamically directly from the git url in your `Jenkinsfile`
+This library can also be loaded dynamically directly from the git url in your `Jenkinsfile` which is the default for TSSC `Jenkinsfiles`
 ```
 library identifier: 'RHTAP_Jenkins@main', retriever: modernSCM(
   [$class: 'GitSCMSource',
