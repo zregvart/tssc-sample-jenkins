@@ -27,7 +27,7 @@ This library can also be loaded dynamically directly from the git url in your `J
 ```
 library identifier: 'RHTAP_Jenkins@main', retriever: modernSCM(
   [$class: 'GitSCMSource',
-   remote: 'https://github.com/jduimovich/rhtap-jenkins.git'])
+   remote: 'https://github.com/redhat-appstudio/tssc-sample-jenkins.git'])
 ```
 
 ### Usage
