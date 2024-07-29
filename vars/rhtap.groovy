@@ -20,6 +20,9 @@ def init( ) {
 def buildah_rhtap( ) { 
     run_script ('buildah-rhtap.sh') 
 }   
+def cosign_sign_attest( ) {
+    run_script ('cosign-sign-attest.sh')
+}
 def acs_deploy_check( ) { 
     run_script ('acs-deploy-check.sh') 
 }

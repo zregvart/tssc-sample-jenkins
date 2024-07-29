@@ -24,6 +24,8 @@ REQUIRED_BINARY+="python3 "
 # remember to leave a space when you add them to a prior ENV list
 REQUIRED_ENV="IMAGE_URL IMAGE "
 REQUIRED_ENV+="QUAY_IO_CREDS_USR QUAY_IO_CREDS_PSW "
+# Cosign signing
+REQUIRED_ENV+="COSIGN_SECRET_PASSWORD COSIGN_SECRET_KEY COSIGN_PUBLIC_KEY "
 # SCANS
 REQUIRED_ENV+="DISABLE_ACS "
 if [ "$DISABLE_ACS" != 'true' ]; then
@@ -48,6 +50,7 @@ fi
 function init() {
 	echo "Running $TASK_NAME:init"
 	echo "DEMO $TASK_NAME:init"
+	timestamp > $RESULTS/START_TIME
 	#!/bin/bash
 	echo "Build Initialize: $IMAGE_URL"
 	echo "Determine if Image Already Exists"
