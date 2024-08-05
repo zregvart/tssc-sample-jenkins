@@ -11,6 +11,7 @@ function get-images-per-env() {
 	set -euo pipefail
 	
 	IMAGE_PATH='.spec.template.spec.containers[0].image'
+	IMAGES_FILE=$HOMEDIR/all-images.txt
 	component_name=$(yq .metadata.name application.yaml)
 	
 	for env in development stage prod; do
@@ -26,9 +27,9 @@ function get-images-per-env() {
 	  fi
 	
 	  printf "%s\n" "$image"
-	done | sort -u > /tmp/all-images.txt
+	done | sort -u > "$IMAGES_FILE"
 	
-	if [ ! -s /tmp/all-images.txt ]; then
+	if [ ! -s "$IMAGES_FILE" ]; then
 	  echo "No images to verify"
 	  touch $RESULTS/IMAGES_TO_VERIFY
 	  exit 0
@@ -37,7 +38,7 @@ function get-images-per-env() {
 	# TODO: each component needs a {"source": {"git": {"url": "...", "revision": "..."}}}
 	#       will that be too large for Tekton results?
 	
-	jq --compact-output --raw-input --slurp < /tmp/all-images.txt '
+	jq --compact-output --raw-input --slurp < "$IMAGES_FILE" '
 	  # split input file
 	  split("\n") |
 	  # drop empty lines
