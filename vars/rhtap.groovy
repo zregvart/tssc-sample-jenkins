@@ -18,6 +18,8 @@ def init( ) {
     run_script ('init.sh') 
 }   
 def buildah_rhtap( ) { 
+    // This is called from buildah-rhtap.sh
+    install_script ('merge-sboms.sh')
     run_script ('buildah-rhtap.sh') 
 }   
 def cosign_sign_attest( ) {
