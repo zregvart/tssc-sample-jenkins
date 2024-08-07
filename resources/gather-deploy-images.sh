@@ -25,6 +25,12 @@ function get-images-per-env() {
 	      continue
 	    fi
 	  fi
+
+	  # Workaround for RHTAPBUGS-1284
+	  if [[ "$image" =~ "quay.io/redhat-appstudio/dance-bootstrap-app" ]]; then
+	    # Don't check the dance-bootstrap-app image
+	    continue
+	  fi
 	
 	  printf "%s\n" "$image"
 	done | sort -u > "$IMAGES_FILE"
