@@ -21,6 +21,11 @@ def run_script (scriptname) {
       install_script ('merge_sboms.py')
     }
 
+    if (scriptname == 'cosign-sign-attest.sh') {
+      // Called from cosign-sign-attest.sh
+      install_script ('att-predicate-jenkins.sh')
+    }
+
     install_script (scriptname)
     sh "rhtap/${scriptname}"
 }
@@ -67,4 +72,12 @@ def gather_deploy_images( ) {
 
 def verify_enterprise_contract( ) {
     run_script ('verify-enterprise-contract.sh')
+}
+
+def gather_images_to_upload_sbom( ) {
+    run_script ('gather-images-to-upload-sbom.sh')
+}
+
+def download_sbom_from_url_in_attestation( ) {
+    run_script ('download-sbom-from-url-in-attestation.sh')
 }
