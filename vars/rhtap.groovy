@@ -1,6 +1,7 @@
 /* Generated from templates/rhtap.groovy.njk. Do not edit directly. */
 import groovy.json.*
 import java.time.*
+import java.time.format.*
 
 def info(message) {
     echo "INFO: ${message}"
