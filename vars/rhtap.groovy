@@ -88,15 +88,6 @@ def download_sbom_from_url_in_attestation( ) {
 }
 
 def env() {
-    echo("---------------------------")
-    echo(currentBuild.dump())
-    echo("---------------------------")
-    echo(currentBuild.rawBuild.dump())
-    echo("---------------------------")
-    echo(currentBuild.rawBuild.parent.dump())
-    echo("---------------------------")
-    echo(currentBuild.rawBuild.parent.definition.dump())
-    echo("---------------------------")
     [
         pipeline_path: currentBuild.rawBuild.parent.definition.scriptPath,
         pipeline_rev: currentBuild.rawBuild.getAction(jenkins.scm.api.SCMRevisionAction.class).revision.head.name
