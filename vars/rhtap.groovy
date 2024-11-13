@@ -88,15 +88,17 @@ def download_sbom_from_url_in_attestation( ) {
 }
 
 def env() {
-    System.out.println("---------------------------")
-    System.out.println(currentBuild)
-    System.out.println("---------------------------")
-    System.out.println(currentBuild.rawBuild)
-    System.out.println("---------------------------")
-    System.out.println(currentBuild.rawBuild.parent)
-    System.out.println("---------------------------")
-    System.out.println(currentBuild.rawBuild.parent.definition)
-    System.out.println("---------------------------")
+    new File("dump.txt").withWriter { out ->
+        out.println("---------------------------")
+        out.println(currentBuild)
+        out.println("---------------------------")
+        out.println(currentBuild.rawBuild)
+        out.println("---------------------------")
+        out.println(currentBuild.rawBuild.parent)
+        out.println("---------------------------")
+        out.println(currentBuild.rawBuild.parent.definition)
+        out.println("---------------------------")
+    }
     [
         pipeline_path: currentBuild.rawBuild.parent.definition.scriptPath
     ]
