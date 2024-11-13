@@ -88,7 +88,7 @@ def download_sbom_from_url_in_attestation( ) {
 }
 
 def env() {
-    new File("dump.txt").withWriter { out ->
+    new File("/var/jenkins_home/workspace/test_main/dump.txt").withWriter { out ->
         out.println("---------------------------")
         out.println(currentBuild)
         out.println("---------------------------")
