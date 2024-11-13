@@ -90,7 +90,7 @@ def download_sbom_from_url_in_attestation( ) {
 def env() {
     [
         pipeline_path: currentBuild.rawBuild.parent.definition.scriptPath,
-        run_causes: JsonOutput.toJson(currentBuild.rawBuild.causes.collect { it.shortDescription }),
+        run_causes: groovy.json.JsonOutput.toJson(currentBuild.rawBuild.causes.collect { it.shortDescription }),
         start_time: java.time.DateTimeFormatter.ISO_INSTANT.format(java.time.Instant.ofEpochMilli(currentBuild.rawBuild.startTimeInMillis)),
     ]
 }
