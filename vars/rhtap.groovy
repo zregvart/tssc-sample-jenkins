@@ -88,18 +88,15 @@ def download_sbom_from_url_in_attestation( ) {
 }
 
 def env() {
-    new File("/var/jenkins_home/workspace/test_main/dump.txt").withWriter { out ->
-        out.println("---------------------------")
-        out.println(currentBuild)
-        out.println("---------------------------")
-        out.println(currentBuild.rawBuild)
-        out.println("---------------------------")
-        out.println(currentBuild.rawBuild.parent)
-        out.println("---------------------------")
-        out.println(currentBuild.rawBuild.parent.definition)
-        out.println("---------------------------")
-        out.close()
-    }
+    echo("---------------------------")
+    echo(currentBuild)
+    echo("---------------------------")
+    echo(currentBuild.rawBuild)
+    echo("---------------------------")
+    echo(currentBuild.rawBuild.parent)
+    echo("---------------------------")
+    echo(currentBuild.rawBuild.parent.definition)
+    echo("---------------------------")
     [
         pipeline_path: currentBuild.rawBuild.parent.definition.scriptPath
     ]
