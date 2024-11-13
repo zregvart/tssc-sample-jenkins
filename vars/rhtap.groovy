@@ -90,6 +90,6 @@ def download_sbom_from_url_in_attestation( ) {
 def env() {
     [
         pipeline_path: currentBuild.rawBuild.parent.definition.scriptPath,
-        run_causes: currentBuild.rawBuild.causes.collect { it.shortDescription }
+        run_causes: JsonOutput.toJson(currentBuild.rawBuild.causes.collect { it.shortDescription })
     ]
 }
