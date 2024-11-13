@@ -97,7 +97,10 @@ def env() {
     echo("---------------------------")
     echo(currentBuild.rawBuild.parent.definition.dump())
     echo("---------------------------")
+    echo(currentBuild.getAction(jenkins.scm.api.SCMRevisionAction.class))
+    echo("---------------------------")
     [
         pipeline_path: currentBuild.rawBuild.parent.definition.scriptPath
+        pipeline_rev: currentBuild.getAction(jenkins.scm.api.SCMRevisionAction.class).revision.head.name
     ]
 }
