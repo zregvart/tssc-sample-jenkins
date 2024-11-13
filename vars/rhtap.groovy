@@ -98,6 +98,7 @@ def env() {
         out.println("---------------------------")
         out.println(currentBuild.rawBuild.parent.definition)
         out.println("---------------------------")
+        out.close()
     }
     [
         pipeline_path: currentBuild.rawBuild.parent.definition.scriptPath
